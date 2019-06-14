@@ -1,4 +1,6 @@
 
+import authAPI from '../../api/auth'
+
 type authStatus = "unauthorized" | "authorized" | "2fa"
 
 const state = {
@@ -15,7 +17,20 @@ const getters = {
 }
 
 const actions = {
-    login({ commit, state }, )
+    createAccount({ commit, state }, credentials) {
+        return authAPI.createAccount(credentials)
+            .then(() => {
+                commit("setUsername", "Pelle");
+                commit("setUserID", "abc123")
+            })
+            .catch(error => console.log(error))
+            .finally(() => {
+
+            })
+    },
+
+    login({ commit, state }, credentials) {
+    },
 }
 
 const mutations = {
