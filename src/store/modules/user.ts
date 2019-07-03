@@ -1,29 +1,40 @@
 
-import authAPI from '../../api/auth'
+import authAPI from '../../api/auth';
+import { RootState } from '../store';
+import { Module, ActionTree, MutationTree, GetterTree, Getter } from 'vuex';
 
-type authStatus = "unauthorized" | "authorized" | "2fa"
+type authStatus = "unauthorized" | "authorized" | "2fa";
 
-const state = {
+export interface UserState {
+    username: string,
+    roles: Array<string>,
+    userID: string,
+    loginStatus: authStatus,
+    error: boolean;
+};
+
+export const state: UserState = {
     username: "unknown",
     roles: [],
     userID: "",
-    loginStatus: "unauthorized"
-}
+    loginStatus: "unauthorized",
+    error: false,
+};
 
-const getters = {
+const getters: GetterTree<UserState, RootState> = {
     isAdminUser: (state, _getters) => {
         return state.roles.includes('admin')
     }
-}
+};
 
-const actions = {
+const actions: ActionTree<UserState, RootState> = {
     createAccount({ commit, state }, credentials) {
         return authAPI.createAccount(credentials)
             .then(() => {
                 commit("setUsername", "Pelle");
                 commit("setUserID", "abc123")
             })
-            .catch(error => console.log(error))
+            .catch(error: Any => console.log(error))
             .finally(() => {
 
             })
@@ -31,9 +42,9 @@ const actions = {
 
     login({ commit, state }, credentials) {
     },
-}
+};
 
-const mutations = {
+const mutations: MutationTree<UserState> = {
     setUsername(state, { name }) {
         state.username = name
     },
@@ -49,12 +60,12 @@ const mutations = {
     setLoginStatus(state, { status }) {
         state.loginStatus = status
     }
-}
+};
 
-export default {
+export const profile: Module<UserState, RootState> = {
     namespaced: true,
     state,
     getters,
     actions,
     mutations
-}
+};
