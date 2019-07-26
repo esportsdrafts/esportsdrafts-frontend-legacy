@@ -1,35 +1,22 @@
 
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import { getStoreBuilder, BareActionContext } from 'vuex-typex'
+import { user } from './modules/user';
+import { VERSION } from '../settings';
 
 Vue.use(Vuex);
 
 export interface RootState {
-    user: UserState
+    version: string;
 }
 
-const store: Store<RootState> = getStoreBuilder<RootState>().vuexStore()
-export default store
+const store: StoreOptions<RootState> = {
+    state: {
+        version: VERSION
+    },
+    modules: {
+        user
+    }
+};
 
-type authStatus = 'unauthorized' | 'authorized' | '2fa';
-
-export interface UserState {
-    username: string,
-    roles: Array<string>,
-    userID: string,
-    loginStatus: authStatus,
-}
-
-const storeBuilder = getStoreBuilder<RootState>()
-const moduleBuilder = storeBuilder.module<UserState>('user', {
-    username: 'unknown',
-    roles: [],
-    userID: '',
-    loginStatus: 'unauthorized'
-})
-
-namespace user {
-    const
-}
-export default user;
+export default new Vuex.Store<RootState>(store);

@@ -1,7 +1,7 @@
 
 import authAPI from '../../api/auth';
 import { RootState } from '../store';
-import { Module, ActionTree, MutationTree, GetterTree, Getter } from 'vuex';
+import { Module, ActionTree, MutationTree, GetterTree } from 'vuex';
 
 type authStatus = "unauthorized" | "authorized" | "2fa";
 
@@ -29,12 +29,12 @@ const getters: GetterTree<UserState, RootState> = {
 
 const actions: ActionTree<UserState, RootState> = {
     createAccount({ commit, state }, credentials) {
-        return authAPI.createAccount(credentials)
+        console.log('CREDS: ' + credentials)
+        return authAPI.createAccount(credentials['username'], credentials['email'], credentials['password'])
             .then(() => {
-                commit("setUsername", "Pelle");
-                commit("setUserID", "abc123")
+                // DO A REDIRECT TO LOGIN PAGE
             })
-            .catch(error: Any => console.log(error))
+            .catch(Error => console.log(Error))
             .finally(() => {
 
             })
@@ -50,7 +50,10 @@ const mutations: MutationTree<UserState> = {
     },
 
     setRoles(state, { roles }) {
-        state.roles = roles
+        // Make sure its a list, functions for adding / removing only one
+        // entry?
+        var roleSet: Set<string> = new Set(roles)
+        state.roles = Array.from(roleSet)
     },
 
     setUserID(state, { userID }) {
@@ -62,7 +65,7 @@ const mutations: MutationTree<UserState> = {
     }
 };
 
-export const profile: Module<UserState, RootState> = {
+export const user: Module<UserState, RootState> = {
     namespaced: true,
     state,
     getters,

@@ -17,6 +17,36 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
+export default {
+  data() {
+    return {
+      username: "dotamaster11",
+      pass: "",
+      error: false,
+      loading: false
+    };
+  },
+  methods: {
+    login() {
+      this.loading = true;
+      this.error = false;
+      this.$store
+        .dispatch("user/login")
+        .then(() => {
+          this.$router.replace(this.$route.query.redirect || "/");
+        })
+        .catch(error => {
+          console.log(error);
+          this.error = true;
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    }
+  }
+};
 </script>
 
 <style>
