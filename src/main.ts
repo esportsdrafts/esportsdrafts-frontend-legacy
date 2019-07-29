@@ -6,17 +6,18 @@ import App from './App.vue';
 import router from './router';
 import './registerServiceWorker';
 import store from './store/store';
+import vuetify from './plugins/vuetify';
+import { BASE_URL } from './settings';
 
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
-// TODO: Move into a separate settings module that reads env variables
-axios.defaults.baseURL = 'https://api.efantasy.dev';
-
+axios.defaults.baseURL = BASE_URL;
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store: store,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app');
