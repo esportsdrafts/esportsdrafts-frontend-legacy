@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-card class="flat" width="340" color="#1b1b1b" outlined="false">
         <v-layout align-center justify-center class="mb-8">
-          <v-btn tile color="white" icon>
+          <v-btn tile color="white" icon to="/">
             <v-icon size="52">gamepad</v-icon>
           </v-btn>
         </v-layout>
@@ -22,7 +22,7 @@
         <v-layout align-center justify-center class="mb-8">
           <v-btn class="ma-2 login-custom-link" flat text to="/login">
             Already have an account
-            <v-icon right>arrow_right_alt</v-icon>
+            <v-icon right>arrow_forward</v-icon>
           </v-btn>
         </v-layout>
       </v-card>
