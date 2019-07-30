@@ -4,12 +4,12 @@
     <p v-if="$route.query.redirect">You need to login first.</p>
     <form @submit.prevent="login">
       <label>
-        <input v-model="username" placeholder="username">
+        <input v-model="username" placeholder="username" />
       </label>
       <label>
-        <input v-model="pass" placeholder="password" type="password">
+        <input v-model="pass" placeholder="password" type="password" />
       </label> (hint: password1)
-      <br>
+      <br />
       <button type="submit">login</button>
       <p v-if="error" class="error">Bad login information</p>
     </form>
@@ -49,8 +49,5 @@ export default {
 };
 </script>
 
-<style>
-.error {
-  color: red;
-}
+<style scoped>
 </style>
