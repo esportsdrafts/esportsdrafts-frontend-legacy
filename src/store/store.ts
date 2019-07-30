@@ -7,16 +7,16 @@ import { VERSION } from '../settings';
 Vue.use(Vuex);
 
 export interface RootState {
-    version: string;
+  version: string;
 }
 
 const store: StoreOptions<RootState> = {
-    state: {
-        version: VERSION
-    },
-    modules: {
-        user
-    }
+  state: {
+    version: VERSION,
+  },
+  modules: {
+    user,
+  },
 };
 
 export default new Vuex.Store<RootState>(store);

@@ -10,8 +10,19 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Reset Password</p>
         <v-card-text>
           <v-form>
-            <v-text-field outlined="true" label="Username" name="username" type="text"></v-text-field>
-            <v-text-field outlined="true" id="email" label="email" name="email" type="text"></v-text-field>
+            <v-text-field
+              outlined="true"
+              label="Username"
+              name="username"
+              type="text">
+            </v-text-field>
+            <v-text-field
+              outlined="true"
+              id="email"
+              label="email"
+              name="email"
+              type="text">
+            </v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
@@ -30,6 +41,9 @@
 </template>
 
 <script lang="ts">
+export default {
+  name: 'ResetPassword',
+};
 </script>
 
 <style scoped>

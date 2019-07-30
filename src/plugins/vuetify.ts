@@ -14,10 +14,7 @@ export default new Vuetify({
         primary: 'ffc857',
         secondary: 'ffe0b5',
         accent: '2e4052',
-       // error: '',
-        //warning: '',
-        //success: '',
-      }
-    }
+      },
+    },
   },
 });
