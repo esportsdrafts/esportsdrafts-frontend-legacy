@@ -11,7 +11,13 @@
         <v-card-text>
           <v-form>
             <v-text-field outlined="true" label="Username" name="username" type="text"></v-text-field>
-            <v-text-field outlined="true" id="password" label="Password" name="password" type="password"></v-text-field>
+            <v-text-field
+              outlined="true"
+              id="password"
+              label="Password"
+              name="password"
+              type="password"
+            ></v-text-field>
             <v-checkbox color="primary" label="Remember me" class="mt-n3"></v-checkbox>
           </v-form>
         </v-card-text>
@@ -20,7 +26,13 @@
           <v-btn color="primary" block>Login</v-btn>
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn flat text color="gray" class="login-custom-link" to="/resetpassword">Forgot password?</v-btn>
+          <v-btn
+            flat
+            text
+            color="gray"
+            class="login-custom-link"
+            to="/resetpassword"
+          >Forgot password?</v-btn>
         </v-layout>
         <v-layout align-center justify-center class="mb-8">
           <v-btn class="ma-2 login-custom-link" flat text to="/register">
@@ -29,7 +41,7 @@
           </v-btn>
         </v-layout>
       </v-card>
-  </v-layout>
+    </v-layout>
   </v-container>
 </template>
 

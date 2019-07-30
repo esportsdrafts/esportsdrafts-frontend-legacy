@@ -10,9 +10,26 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Register</p>
         <v-card-text>
           <v-form>
-            <v-text-field outlined="true" label="Username" name="username" type="text" counter minlength="5" maxlength="30"></v-text-field>
+            <v-text-field
+              outlined="true"
+              label="Username"
+              name="username"
+              type="text"
+              counter
+              minlength="5"
+              maxlength="30"
+            ></v-text-field>
             <v-text-field outlined="true" label="Email" name="email" type="text"></v-text-field>
-            <v-text-field outlined="true" id="password" label="Password" name="password" minlength="12" maxlength="120" type="password" counter></v-text-field>
+            <v-text-field
+              outlined="true"
+              id="password"
+              label="Password"
+              name="password"
+              minlength="12"
+              maxlength="120"
+              type="password"
+              counter
+            ></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
@@ -26,7 +43,7 @@
           </v-btn>
         </v-layout>
       </v-card>
-  </v-layout>
+    </v-layout>
   </v-container>
 </template>
 
