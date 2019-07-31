@@ -1,5 +1,6 @@
 <template>
   <v-app-bar app dark fixed color="#1b1b1b" flat>
+    <v-progress-linear :active="loading" :indeterminate="loading" absolute top color="primary"></v-progress-linear>
     <v-btn class="ma-5" tile large color="white" icon>
       <v-icon>gamepad</v-icon>
     </v-btn>
@@ -13,6 +14,17 @@
 
 <script>
 export default {
+  data: () => ({
+    loading: false
+  }),
+
+  watch: {
+    loading(val) {
+      if (!val) return;
+      setTimeout(() => (this.loading = false), 4000);
+    }
+  },
+
   name: "Navigation"
 };
 </script>

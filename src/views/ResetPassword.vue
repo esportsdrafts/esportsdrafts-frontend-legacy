@@ -10,19 +10,8 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Reset Password</p>
         <v-card-text>
           <v-form>
-            <v-text-field
-              outlined="true"
-              label="Username"
-              name="username"
-              type="text">
-            </v-text-field>
-            <v-text-field
-              outlined="true"
-              id="email"
-              label="email"
-              name="email"
-              type="text">
-            </v-text-field>
+            <v-text-field outlined="true" label="Username" name="username" type="text"></v-text-field>
+            <v-text-field outlined="true" id="email" label="Email" name="email" type="text"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
@@ -31,18 +20,17 @@
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
           <v-btn class="ma-2 login-custom-link" flat text to="/login">
-            <v-icon left>arrow_back</v-icon>
-            Back to login
-            </v-btn>
+            <v-icon left>arrow_back</v-icon>Back to login
+          </v-btn>
         </v-layout>
       </v-card>
-  </v-layout>
+    </v-layout>
   </v-container>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'ResetPassword',
+  name: "ResetPassword"
 };
 </script>
 

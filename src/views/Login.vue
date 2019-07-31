@@ -16,7 +16,9 @@
               id="password"
               label="Password"
               name="password"
-              type="password"
+              :append-icon="show_password ? 'visibility' : 'visibility_off'"
+              :type="show_password ? 'text' : 'password'"
+              @click:append="show_password = !show_password"
             ></v-text-field>
             <v-checkbox color="primary" label="Remember me" class="mt-n3"></v-checkbox>
           </v-form>
@@ -55,7 +57,8 @@ export default {
       username: "dotamaster11",
       pass: "",
       error: false,
-      loading: false
+      loading: false,
+      show_password: false
     };
   },
   methods: {
