@@ -10,11 +10,14 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Register</p>
         <v-card-text>
           <v-form>
+            <v-alert type="error" v-if="password_warning !== null && password_warning != ''">
+              <span class="font-weight-bold">Weak password:</span>
+              {{password_warning}}
+            </v-alert>
             <v-text-field
               outlined="true"
               label="Username"
               name="username"
-              hint="At least 5 characters"
               type="text"
               counter
               maxlength="30"
@@ -34,15 +37,28 @@
               :type="show_password ? 'text' : 'password'"
               id="password"
               label="Password"
-              hint="At least 12 characters"
               name="password"
               maxlength="120"
+              :color="password_strength_color"
               v-model="password"
               :rules="[rules.required, rules.password_min]"
               counter
               @click:append="show_password = !show_password"
             ></v-text-field>
-            <password v-model="password" :strength-meter-only="true" />
+            <v-progress-linear
+              class="mb-5"
+              :value="password_score"
+              :color="password_strength_color"
+              rounded
+            ></v-progress-linear>
+            <password
+              v-model="password"
+              :strength-meter-only="true"
+              @score="passwordScore"
+              @feedback="passwordFeedback"
+              :secure-length="12"
+              v-show="false"
+            />
           </v-form>
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
@@ -73,6 +89,11 @@ export default {
       password: null,
       error: false,
       loading: false,
+      password_score: 0,
+      password_warning: null,
+      password_suggestion: null,
+      password_strength_color: "primary",
+      show_password_warning: true,
       show_username_hint: false,
       show_password_hint: false,
       show_password: false,
@@ -89,6 +110,40 @@ export default {
     };
   },
   methods: {
+    passwordScore(score) {
+      if (!score) {
+        this.password_strength_color = "red darken-4";
+        this.password_score = 0;
+      }
+      this.password_score = (1 + score) * 20;
+      switch (score) {
+        case 0:
+          this.password_strength_color = "red darken-4";
+          break;
+        case 1:
+          this.password_strength_color = "red darken-2";
+          break;
+        case 2:
+          this.password_strength_color = "yellow darken-3";
+          break;
+        case 3:
+          this.password_strength_color = "yellow darken-1";
+          break;
+        case 4:
+          this.password_strength_color = "light-green darken-1";
+          break;
+        default:
+          this.password_strength_color = "red darken-4";
+          break;
+      }
+    },
+    passwordFeedback({ suggestion, warning }) {
+      this.password_warning = warning;
+      this.password_suggestion = suggestion;
+
+      if (!this.passwordFeedback) {
+      }
+    },
     register() {
       this.loading = true;
       this.error = false;
