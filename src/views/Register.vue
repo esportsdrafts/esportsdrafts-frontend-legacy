@@ -116,26 +116,13 @@ export default {
         this.password_score = 0;
       }
       this.password_score = (1 + score) * 20;
-      switch (score) {
-        case 0:
-          this.password_strength_color = "red darken-4";
-          break;
-        case 1:
-          this.password_strength_color = "red darken-2";
-          break;
-        case 2:
-          this.password_strength_color = "yellow darken-3";
-          break;
-        case 3:
-          this.password_strength_color = "yellow darken-1";
-          break;
-        case 4:
-          this.password_strength_color = "light-green darken-1";
-          break;
-        default:
-          this.password_strength_color = "red darken-4";
-          break;
-      }
+      this.password_strength_color = [
+        "red darken-4",
+        "red darken-2",
+        "yellow darken-3",
+        "yellow darken-1",
+        "light-green darken-1"
+      ][score];
     },
     passwordFeedback({ suggestion, warning }) {
       this.password_warning = warning;

@@ -5,7 +5,7 @@
     <navigation v-if="!$route.meta.hideNavigation" />
 
     <v-content>
-      <v-container fluid fill-height>
+      <v-container fixed fill-height>
         <v-layout align-center justify-center>
           <router-view></router-view>
         </v-layout>
