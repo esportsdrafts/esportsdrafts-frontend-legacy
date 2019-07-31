@@ -22,7 +22,7 @@ export default {
   color: #ffc857;
 }
 
-.simple-hover:hover:before {
+.simple-hover:hover:before .simple-hover:hover:after {
   background-color: transparent;
 }
 </style>

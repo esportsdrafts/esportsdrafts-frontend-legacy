@@ -13,6 +13,8 @@ Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
 axios.defaults.baseURL = BASE_URL;
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 Vue.config.productionTip = false;
 
 new Vue({
