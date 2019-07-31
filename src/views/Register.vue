@@ -10,7 +10,7 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Register</p>
         <v-card-text>
           <v-form>
-            <v-alert type="error" v-if="password_warning !== null && password_warning != ''">
+            <v-alert type="warning" v-if="password_warning !== null && password_warning != ''">
               <span class="font-weight-bold">Weak password:</span>
               {{password_warning}}
             </v-alert>
