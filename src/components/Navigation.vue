@@ -12,8 +12,8 @@
           <v-btn to="/" class="simple-hover" color="#1b1b1b" depressed>Lobby</v-btn>
           <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Leagues</v-btn>
           <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Account</v-btn>
-          <v-btn to="/login" class="simple-hover" color="#1b1b1b" depressed>Login</v-btn>
-          <v-btn to="/register" class="ml-5" color="primary" large rounded>REGISTER</v-btn>
+          <v-btn to="/login" class="simple-hover" color="#1b1b1b" depressed>Log in</v-btn>
+          <v-btn to="/register" class="ml-4" color="primary" large rounded>Join Now</v-btn>
         </v-flex>
       </v-layout>
     </v-container>

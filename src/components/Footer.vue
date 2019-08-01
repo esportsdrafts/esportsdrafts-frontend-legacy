@@ -2,7 +2,7 @@
   <v-footer color="black" padless absolute class="pt-6 pl-6 pr-6 pb-6">
     <v-container grid-list-md color="black">
       <v-flex color="black" py-4 text-center white--text xs12 class="mb-8">
-        <v-btn class="ma-2" outlined text>
+        <v-btn class="ma-2" outlined text @click="scroll_to_top">
           <v-icon>arrow_upward</v-icon>Back to Top
         </v-btn>
       </v-flex>
@@ -75,15 +75,6 @@
             </v-flex>
           </v-card>
         </v-flex>
-
-        <!--    <v-spacer></v-spacer>
-      <v-flex>
-        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn>
-      </v-flex>
-      <v-flex color="#1b1b1b" py-4 text-center white--text xs12>
-        {{ new Date().getFullYear() }} —
-        <strong>eFantasy</strong>
-        </v-flex>-->
       </v-layout>
     </v-container>
   </v-footer>
@@ -93,6 +84,11 @@
 import Vue from "vue";
 
 export default {
+  methods: {
+    scroll_to_top() {
+      window.scrollTo(0, 0);
+    }
+  },
   data: () => ({
     legal: ["Terms", "Privacy", "Cookies"],
     follow: ["Instagram", "Twitter", "Linkedin"],
