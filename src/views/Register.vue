@@ -66,9 +66,8 @@
           <v-btn color="primary" block>Register</v-btn>
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn class="ma-2 login-custom-link" text to="/login">
-            Already have an account
-            <v-icon right>arrow_forward</v-icon>
+          <v-btn class="ma-2 login-custom-link" flat text to="/login">
+            <v-icon left>arrow_back</v-icon>Back to login
           </v-btn>
         </v-layout>
       </v-card>

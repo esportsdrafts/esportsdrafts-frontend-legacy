@@ -5,10 +5,11 @@
       <v-layout row align-center justify-space-between wrap>
         <v-flex xl1 lg1 md1 xs12 sm12>
           <v-btn class="ma-5" tile x-large color="white" icon>
-            <v-icon>gamepad</v-icon>
+            <v-icon x-large>gamepad</v-icon>
           </v-btn>
         </v-flex>
         <v-flex md8 xl4 lg6 s12 offset-md3 offset-lg5>
+          <v-spacer></v-spacer>
           <v-btn to="/" class="simple-hover" color="#1b1b1b" depressed>Lobby</v-btn>
           <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Leagues</v-btn>
           <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Account</v-btn>
