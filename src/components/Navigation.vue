@@ -1,30 +1,65 @@
 <template>
   <v-app-bar app color="#1b1b1b" flat>
-    <v-progress-linear :active="loading" :indeterminate="loading" absolute top color="primary"></v-progress-linear>
-    <v-container grid-list-md>
-      <v-layout row align-center justify-space-between wrap>
-        <v-flex xl1 lg1 md1 xs12 sm12>
-          <v-btn class="ma-5" tile x-large color="white" icon>
-            <v-icon x-large>gamepad</v-icon>
-          </v-btn>
-        </v-flex>
-        <v-flex md8 xl4 lg6 s12 offset-md3 offset-lg5>
-          <v-spacer></v-spacer>
-          <v-btn to="/" class="simple-hover" color="#1b1b1b" depressed>Lobby</v-btn>
-          <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Leagues</v-btn>
-          <v-btn to="/register" class="simple-hover" color="#1b1b1b" depressed>My Account</v-btn>
-          <v-btn to="/login" class="simple-hover" color="#1b1b1b" depressed>Log in</v-btn>
-          <v-btn to="/register" class="ml-4" color="primary" large rounded>Join Now</v-btn>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <v-progress-linear :active="loading" :indeterminate="loading" flat absolute top color="primary"></v-progress-linear>
+    <v-toolbar color="#1b1b1b" flat>
+      <v-toolbar-title>
+        <v-btn tile x-large text>
+          <v-icon large>gamepad</v-icon>
+          <div class="ml-2 title text-none">eFantasy</div>
+        </v-btn>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn
+          v-for="item in menuItems"
+          :to="item.link"
+          :key="item.icon"
+          depressed
+          color="#1b1b1b"
+          class="simple-hover"
+          rounded
+        >{{ item.title }}</v-btn>
+      </v-toolbar-items>
+      <v-menu class="hidden-md-and-up">
+        <v-toolbar-side-icon color="white" v-slot="activator"></v-toolbar-side-icon>
+        <v-list>
+          <v-list-tile v-for="item in menuItems" :to="item.link" :key="item.icon">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+    </v-toolbar>
   </v-app-bar>
 </template>
 
 <script>
 export default {
   data: () => ({
-    loading: false
+    loading: false,
+    menuItems: [
+      {
+        title: "Lobby",
+        link: "/",
+        icon: "home"
+      },
+      {
+        title: "My Leagues",
+        link: "/register",
+        icon: "list"
+      },
+      {
+        title: "My Account",
+        link: "/register",
+        icon: "person"
+      },
+      {
+        title: "Log in",
+        link: "/login",
+        icon: "warning"
+      }
+    ]
   }),
 
   watch: {
@@ -39,6 +74,11 @@ export default {
 <style scoped>
 .simple-hover:hover {
   color: #ffc857;
+  background-color: none;
+}
+
+.v-btn::before {
+  background-color: transparent;
 }
 
 .simple-hover:hover:before .simple-hover:hover:after {

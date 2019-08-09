@@ -91,7 +91,7 @@ export default {
   },
   data: () => ({
     legal: ["Terms", "Privacy", "Cookies"],
-    follow: ["Instagram", "Twitter", "Linkedin"],
+    follow: ["Instagram", "Twitter", "Twitch"],
     links: ["Support", "About", "Developer", "Blog", "Contact"]
   })
 };

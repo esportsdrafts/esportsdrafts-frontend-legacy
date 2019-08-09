@@ -9,7 +9,7 @@
         </v-layout>
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Register</p>
         <v-card-text>
-          <v-form>
+          <v-form @submit.prevent="register">
             <v-alert type="warning" v-if="password_warning !== null && password_warning != ''">
               <span class="font-weight-bold">Weak password:</span>
               {{password_warning}}
@@ -21,6 +21,7 @@
               type="text"
               counter
               maxlength="30"
+              v-model="username"
               :rules="[rules.required, rules.username_min, rules.username_val]"
               @click:append="show_username_hint = !show_username_hint"
             ></v-text-field>
@@ -29,6 +30,7 @@
               label="Email"
               name="email"
               type="text"
+              v-model="email"
               :rules="[rules.required, rules.email_validation]"
             ></v-text-field>
             <v-text-field
@@ -63,7 +65,7 @@
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
           <v-spacer></v-spacer>
-          <v-btn color="primary" block>Register</v-btn>
+          <v-btn color="primary" @click="register" :loading="loading" block>Register</v-btn>
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
           <v-btn class="ma-2 login-custom-link" flat text to="/login">
@@ -83,8 +85,8 @@ export default {
   components: { Password },
   data() {
     return {
-      username: "dotamaster11",
-      email: "joe@example.com",
+      username: "",
+      email: "",
       password: null,
       error: false,
       loading: false,
@@ -140,8 +142,9 @@ export default {
       };
       this.$store
         .dispatch("user/createAccount", credentials)
-        .then(() => {
-          this.$router.replace(this.$route.query.redirect || "/");
+        .then(res => {
+          console.log(res);
+          this.$router.replace("/emailsent");
         })
         .catch(error => {
           console.log(error);
