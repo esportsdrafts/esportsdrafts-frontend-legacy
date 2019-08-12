@@ -47,7 +47,7 @@
         </v-flex>
         <v-flex d-flex xs12 sm6 md2>
           <v-card color="black" width="120">
-            <v-card-title primary class="subtitle-1 font-weight-medium">Follow</v-card-title>
+            <v-card-title primary class="subtitle-1 font-weight-medium">Social</v-card-title>
             <v-flex>
               <v-btn
                 v-for="link in follow"
@@ -91,7 +91,7 @@ export default {
   },
   data: () => ({
     legal: ["Terms", "Privacy", "Cookies"],
-    follow: ["Instagram", "Twitter", "Twitch"],
+    follow: ["Twitter", "Reddit", "Discord", "Twitch"],
     links: ["Support", "About", "Developer", "Blog", "Contact"]
   })
 };
