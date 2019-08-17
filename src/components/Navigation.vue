@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar app color="#1b1b1b" flat>
+  <v-app-bar app color="#151617" flat>
     <v-progress-linear :active="loading" :indeterminate="loading" flat absolute top color="primary"></v-progress-linear>
-    <v-toolbar color="#1b1b1b" flat>
+    <v-toolbar color="#151617" flat>
       <v-toolbar-title>
         <v-btn tile x-large text>
           <v-icon large>gamepad</v-icon>
@@ -15,7 +15,7 @@
           :to="item.link"
           :key="item.icon"
           depressed
-          color="#1b1b1b"
+          color="#151617"
           class="simple-hover"
           rounded
         >{{ item.title }}</v-btn>

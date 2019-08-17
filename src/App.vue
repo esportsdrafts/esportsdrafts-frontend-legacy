@@ -1,17 +1,12 @@
 <template>
   <v-app style="
-    background: #1b1b1b;
+    background: #151617;
   ">
     <navigation v-if="!$route.meta.hideNavigation" />
 
     <v-content>
-      <v-container fixed fill-height>
-        <v-layout align-center justify-center>
-          <router-view></router-view>
-        </v-layout>
-      </v-container>
+      <router-view></router-view>
     </v-content>
-
     <Footer v-if="!$route.meta.hideNavigation" />
   </v-app>
 </template>

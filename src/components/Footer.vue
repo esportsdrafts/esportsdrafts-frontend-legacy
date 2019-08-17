@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="black" padless absolute class="pt-6 pl-6 pr-6 pb-6">
+  <v-footer color="black" padless absolute class="pt-6 pl-6 pr-6 pb-6" app height="auto">
     <v-container grid-list-md color="black">
       <v-flex color="black" py-4 text-center white--text xs12 class="mb-8">
         <v-btn class="ma-2" outlined text @click="scroll_to_top">

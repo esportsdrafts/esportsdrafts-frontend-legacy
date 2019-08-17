@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
-      <v-card class="flat" width="340" color="#1b1b1b" outlined="false">
+      <v-card class="flat" width="340" color="#151617" outlined="false">
         <v-layout align-center justify-center class="mb-8">
           <v-btn tile color="white" icon to="/">
             <v-icon size="52">gamepad</v-icon>
