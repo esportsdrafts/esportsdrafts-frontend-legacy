@@ -1,26 +1,24 @@
 
 <template>
   <v-container>
-    <v-layout wrap class="pt-12 pb-12 pl-0" justify-center>
-      <v-flex md12 class="pt-12 pb-12 mb-10">
+    <v-layout wrap class="pt-0 pb-12 pl-0" justify-center>
+      <v-flex md12 sm12 xs12 fill-height class="pt-6 pb-0 mb-10">
         <h2 class="text-center display-4 font-weight-bold">Supported Games</h2>
       </v-flex>
-      <v-flex md2 xl3 align="baseline"></v-flex>
-      <v-flex md8 xl6 align="baseline">
+      <v-flex md12 sm12 xs12 fill-height align="baseline">
         <h2
           class="text-center mb-6 font-weight-regular grey--text display-1"
-        >Draft players from your favorit games</h2>
+        >Draft players from your favorite games</h2>
       </v-flex>
-      <v-flex md2 xl3 align="baseline"></v-flex>
-      <v-flex md4 class="pa-12">
-        <v-img :src="`${publicPath}img/dota-2-logo.svg`" aspect-ratio="1" fill-height></v-img>
+      <v-flex md4 fill-height class="pa-12 text-center">
+        <v-img :src="`${publicPath}img/dota-2-logo.svg`" aspect-ratio="1" fill-height class="pa-12"></v-img>
       </v-flex>
-      <v-flex md4 class="pa-12">
+      <v-flex md4 class="pa-12 text-center">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
             <v-img
               v-on="on"
-              class="coming-soon-tm"
+              class="coming-soon-tm pa-12"
               :src="`${publicPath}img/fortnite-logo.svg`"
               aspect-ratio="1"
               fill-height
@@ -29,12 +27,12 @@
           <span>Fortnite available soon&trade;</span>
         </v-tooltip>
       </v-flex>
-      <v-flex md4 class="pa-12">
+      <v-flex md4 class="pa-12 text-center">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
             <v-img
               v-on="on"
-              class="coming-soon-tm"
+              class="coming-soon-tm pa-12"
               :src="`${publicPath}img/league-logo.svg`"
               aspect-ratio="1"
               fill-height

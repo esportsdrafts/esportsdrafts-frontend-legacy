@@ -1,8 +1,10 @@
 <template>
-  <v-container fill-height fluid class="pt-12 pb-0 pl-0 pr-0">
+  <v-container fill-height fluid class="pt-0 pb-0 pl-0 pr-0">
     <v-layout wrap>
       <f-p-animation />
+      <div class="plus-divider text-center shine">+</div>
       <f-p-twitch-live />
+      <div class="plus-divider text-center shine">+</div>
       <f-p-supported-games />
     </v-layout>
   </v-container>
@@ -24,24 +26,36 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.shine {
-  background: #f6f7f8;
-  background-image: linear-gradient(
-    to right,
-    #f6f7f8 0%,
-    #edeef1 20%,
-    #f6f7f8 40%,
-    #f6f7f8 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 800px 104px;
-  display: inline-block;
-  position: relative;
+.plus-divider {
+  width: 100%;
+  font-size: 72px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 10s infinite linear;
+  animation: hue 10s infinite linear;
+}
 
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-name: placeholderShimmer;
-  -webkit-animation-timing-function: linear;
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+@keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 </style>
