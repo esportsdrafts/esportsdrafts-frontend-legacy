@@ -10,13 +10,13 @@
         <v-flex d-flex xs12 sm6 md3>
           <v-card color="black">
             <v-card-title primary class="title mb-2">
-              <v-icon large class="mr-2">gamepad</v-icon>eFantasy
+              <v-icon large class="mr-2">gamepad</v-icon>esportsdrafts
             </v-card-title>
             <v-card-text>Best e-Sports bla bla fantasy league.</v-card-text>
             <v-spacer></v-spacer>
             <v-card-text class="mt-8">
               &copy; {{ new Date().getFullYear() }} —
-              <strong>eFantasy</strong>
+              <strong>esportsdrafts</strong>
             </v-card-text>
           </v-card>
         </v-flex>
@@ -24,7 +24,7 @@
           <v-card color="black">
             <v-card-title primary class="subtitle-1 font-weight-medium">Visit</v-card-title>
             <v-flex>
-              <v-card-text class="pb-2">eFantasy</v-card-text>
+              <v-card-text class="pb-2">esportsdrafts</v-card-text>
               <v-card-text class="pb-2 pt-0 ma-0">Best street 23, 2 flr</v-card-text>
               <v-card-text class="pb-2 pt-0 ma-0">San Franciso, CA, USA 94100</v-card-text>
             </v-flex>

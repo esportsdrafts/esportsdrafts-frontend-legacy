@@ -1,4 +1,4 @@
-# efantasy-frontend
+# esportsdrafts-frontend
 
 ## Project setup
 ```

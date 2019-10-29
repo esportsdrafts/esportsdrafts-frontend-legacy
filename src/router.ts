@@ -19,11 +19,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'eFantasy fantasy league games lobby'
+          content: 'esportsdrafts fantasy league games lobby'
         },
         {
           property: 'og:description',
-          content: 'eFantasy fantasy league games lobby.'
+          content: 'esportsdrafts fantasy league games lobby.'
         }
       ]
     }
@@ -38,11 +38,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Login to eFantasy'
+          content: 'Login to esportsdrafts'
         },
         {
           property: 'og:description',
-          content: 'Login to eFantasy.'
+          content: 'Login to esportsdrafts.'
         }
       ]
     },
@@ -119,7 +119,7 @@ router.beforeEach((to, from, next) => {
   const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
   // const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
 
-  if (nearestWithTitle) document.title = nearestWithTitle.meta.title + ' | eFantasy';
+  if (nearestWithTitle) document.title = nearestWithTitle.meta.title + ' | esportsdrafts';
 
   // @ts-ignore
   Array.from(document.querySelectorAll('[data-vue-router-controlled]')).filter(Boolean).map(el => el.parentNode.removeChild(el));

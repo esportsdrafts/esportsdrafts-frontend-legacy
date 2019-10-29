@@ -5,7 +5,7 @@
       <v-toolbar-title>
         <v-btn tile x-large text>
           <v-icon large>gamepad</v-icon>
-          <div class="ml-2 title text-none">eFantasy</div>
+          <div class="ml-2 title text-none">esportsdrafts</div>
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
