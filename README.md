@@ -1,4 +1,8 @@
-# esportsdrafts-frontend
+# esportsdrafts frontend
+
+**TODO:**
+* Add the 3 steps to use the platform on front page
+* Authentication flow with email verifications
 
 ## Project setup
 ```
