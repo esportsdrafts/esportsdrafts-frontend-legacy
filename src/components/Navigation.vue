@@ -1,15 +1,14 @@
 <template>
   <v-app-bar app color="#151617" flat>
-    <v-progress-linear :active="loading" :indeterminate="loading" flat absolute top color="primary"></v-progress-linear>
-    <v-toolbar color="#151617" flat>
+    <v-toolbar color="#151617" flat class="centered-toolbar" max-width="2024">
       <v-toolbar-title>
         <v-btn tile x-large text>
           <v-icon large>gamepad</v-icon>
-          <div class="ml-2 title text-none">esportsdrafts</div>
+          <div class="ml-2 title text-none hidden-sm-and-down">esportsdrafts</div>
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items>
         <v-btn
           v-for="item in menuItems"
           :to="item.link"
@@ -20,17 +19,16 @@
           rounded
         >{{ item.title }}</v-btn>
       </v-toolbar-items>
-      <v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon color="white" v-slot="activator"></v-toolbar-side-icon>
-        <v-list>
-          <v-list-tile v-for="item in menuItems" :to="item.link" :key="item.icon">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
+      <v-btn class="ml-4 mr-8" outlined color="primary" large href="/register">Sign Up</v-btn>
     </v-toolbar>
+    <v-progress-linear
+      :active="loading"
+      :indeterminate="loading"
+      flat
+      absolute
+      bottom
+      color="primary"
+    ></v-progress-linear>
   </v-app-bar>
 </template>
 
@@ -40,22 +38,7 @@ export default {
     loading: false,
     menuItems: [
       {
-        title: "Lobby",
-        link: "/",
-        icon: "home"
-      },
-      {
-        title: "My Leagues",
-        link: "/register",
-        icon: "list"
-      },
-      {
-        title: "My Account",
-        link: "/register",
-        icon: "person"
-      },
-      {
-        title: "Log in",
+        title: "Login",
         link: "/login",
         icon: "warning"
       }
@@ -75,6 +58,10 @@ export default {
 .simple-hover:hover {
   color: #ffc857;
   background-color: none;
+}
+
+.centered-toolbar {
+  margin: 0 auto;
 }
 
 .v-btn::before {
