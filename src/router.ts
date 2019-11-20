@@ -15,18 +15,18 @@ const routes = [
     name: 'home',
     component: Home,
     meta: {
-      title: 'Lobby',
+      title: 'Home',
       metaTags: [
         {
           name: 'description',
-          content: 'esportsdrafts fantasy league games lobby'
+          content: 'esportsdrafts fantasy league games',
         },
         {
           property: 'og:description',
-          content: 'esportsdrafts fantasy league games lobby.'
-        }
-      ]
-    }
+          content: 'esportsdrafts fantasy league games.',
+        },
+      ],
+    },
   },
   {
     path: '/login',
@@ -38,13 +38,13 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Login to esportsdrafts'
+          content: 'Login to esportsdrafts',
         },
         {
           property: 'og:description',
-          content: 'Login to esportsdrafts.'
-        }
-      ]
+          content: 'Login to esportsdrafts.',
+        },
+      ],
     },
   },
   {
@@ -57,13 +57,13 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Register an account'
+          content: 'Register an account',
         },
         {
           property: 'og:description',
-          content: 'Register an account.'
-        }
-      ]
+          content: 'Register an account.',
+        },
+      ],
     },
   },
   {
@@ -76,13 +76,13 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Reset your account password'
+          content: 'Reset your account password',
         },
         {
           property: 'og:description',
-          content: 'Reset your account password.'
-        }
-      ]
+          content: 'Reset your account password.',
+        },
+      ],
     },
   },
   {
@@ -95,21 +95,21 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'We sent you an email'
+          content: 'We sent you an email',
         },
         {
           property: 'og:description',
-          content: 'We sent you an email.'
-        }
-      ]
+          content: 'We sent you an email.',
+        },
+      ],
     },
   },
 ];
 
 const router = new Router({
-  mode: "history",
+  mode: 'history',
   base: BASE_URL,
-  routes: routes,
+  routes,
 });
 
 // This callback runs before every route change, including on page load.
@@ -119,17 +119,20 @@ router.beforeEach((to, from, next) => {
   const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
   // const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
 
-  if (nearestWithTitle) document.title = nearestWithTitle.meta.title + ' | esportsdrafts';
+  if (nearestWithTitle) document.title = `${nearestWithTitle.meta.title} | esportsdrafts`;
 
   // @ts-ignore
-  Array.from(document.querySelectorAll('[data-vue-router-controlled]')).filter(Boolean).map(el => el.parentNode.removeChild(el));
+  // eslint-disable-next-line
+  Array.from(document.querySelectorAll('[data-vue-router-controlled]')).filter(Boolean).map(
+    el => el.parentNode.removeChild(el),
+  );
   if (!nearestWithMeta) return next();
 
   // @ts-ignore
-  nearestWithMeta.meta.metaTags.map(tagDef => {
+  nearestWithMeta.meta.metaTags.map((tagDef) => {
     const tag = document.createElement('meta');
 
-    Object.keys(tagDef).forEach(key => {
+    Object.keys(tagDef).forEach((key) => {
       tag.setAttribute(key, tagDef[key]);
     });
 
@@ -140,7 +143,7 @@ router.beforeEach((to, from, next) => {
     // @ts-ignore
   }).forEach(tag => document.head.appendChild(tag));
 
-  next();
+  return next();
 });
 
 export default router;

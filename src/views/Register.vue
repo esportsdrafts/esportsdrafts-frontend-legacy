@@ -78,59 +78,54 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Password from "vue-password-strength-meter";
+import { mapState } from 'vuex';
+import Password from 'vue-password-strength-meter';
 
 export default {
   components: { Password },
   data() {
     return {
-      username: "",
-      email: "",
+      username: '',
+      email: '',
       password: null,
       error: false,
       loading: false,
       password_score: 0,
       password_warning: null,
       password_suggestion: null,
-      password_strength_color: "primary",
+      password_strength_color: 'primary',
       show_password_warning: true,
       show_username_hint: false,
       show_password_hint: false,
       show_password: false,
       rules: {
-        required: value => !!value || "Required.",
-        username_min: v => (v && v.length >= 5) || "Min 5 characters.",
-        username_val: v =>
-          (v && v.match(/^[\da-z_-]*$/g)) || "Only a-z, 0-9, - or _ allowed.",
-        email_validation: v =>
-          (v && v.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) ||
-          "Not a valid email address.",
-        password_min: v => (v && v.length >= 12) || "Min 12 characters."
-      }
+        required: value => !!value || 'Required.',
+        username_min: v => (v && v.length >= 5) || 'Min 5 characters.',
+        username_val: v => (v && v.match(/^[\da-z_-]*$/g)) || 'Only a-z, 0-9, - or _ allowed.',
+        email_validation: v => (v && v.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
+          || 'Not a valid email address.',
+        password_min: v => (v && v.length >= 12) || 'Min 12 characters.',
+      },
     };
   },
   methods: {
     passwordScore(score) {
       if (!score) {
-        this.password_strength_color = "red darken-4";
+        this.password_strength_color = 'red darken-4';
         this.password_score = 0;
       }
       this.password_score = (1 + score) * 20;
       this.password_strength_color = [
-        "red darken-4",
-        "red darken-2",
-        "yellow darken-3",
-        "yellow darken-1",
-        "light-green darken-1"
+        'red darken-4',
+        'red darken-2',
+        'yellow darken-3',
+        'yellow darken-1',
+        'light-green darken-1',
       ][score];
     },
     passwordFeedback({ suggestion, warning }) {
       this.password_warning = warning;
       this.password_suggestion = suggestion;
-
-      if (!this.passwordFeedback) {
-      }
     },
     register() {
       if (!this.$refs.form.validate()) {
@@ -138,28 +133,28 @@ export default {
       }
       this.loading = true;
       this.error = false;
-      var credentials = {
+      const credentials = {
         username: this.username,
         email: this.email,
-        password: this.pass
+        password: this.pass,
       };
       this.$store
-        .dispatch("user/createAccount", credentials)
-        .then(res => {
+        .dispatch('user/createAccount', credentials)
+        .then((res) => {
           console.log(res);
           if (!this.error) {
-            this.$router.replace("/emailsent");
+            this.$router.replace('/emailsent');
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           this.error = true;
         })
         .finally(() => {
           this.loading = false;
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

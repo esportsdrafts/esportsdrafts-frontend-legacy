@@ -1,19 +1,19 @@
 
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
-    createAccount(username: string, email: string, password: string) {
-        return axios.post('/v1/auth/register', {
-            "username": username,
-            "email": email,
-            "password": password,
-        })
-    },
+  createAccount(username: string, email: string, password: string) {
+    return axios.post('/v1/auth/register', {
+      username,
+      email,
+      password,
+    });
+  },
 
-    performAuth(username: string, password: string) {
-        return axios.post('/v1/auth/auth', {
-            "username": username,
-            "password": password,
-        })
-    },
-}
+  performAuth(username: string, password: string) {
+    return axios.post('/v1/auth/auth', {
+      username,
+      password,
+    });
+  },
+};

@@ -81,19 +81,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default {
   methods: {
     scroll_to_top() {
       window.scrollTo(0, 0);
-    }
+    },
   },
   data: () => ({
-    legal: ["Terms", "Privacy", "Cookies"],
-    follow: ["Twitter", "Reddit", "Discord", "Twitch"],
-    links: ["Support", "About", "Developer", "Blog", "Contact"]
-  })
+    legal: ['Terms', 'Privacy', 'Cookies'],
+    follow: ['Twitter', 'Reddit', 'Discord', 'Twitch'],
+    links: ['Support', 'About', 'Developer', 'Blog', 'Contact'],
+  }),
 };
 </script>
 
@@ -102,5 +102,3 @@ export default {
   font-size: 5px;
 }
 </style>
-
-

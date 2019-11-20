@@ -12,7 +12,7 @@ import { BASE_URL } from './settings';
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
-axios.defaults.baseURL = "https://api.esportsdrafts.localhost";
+axios.defaults.baseURL = 'https://api.esportsdrafts.localhost';
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.withCredentials = true;
 

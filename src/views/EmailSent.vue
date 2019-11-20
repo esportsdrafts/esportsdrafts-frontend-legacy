@@ -23,7 +23,7 @@
 
 <script lang="ts">
 export default {
-  name: "EmailSent"
+  name: 'EmailSent',
 };
 </script>
 

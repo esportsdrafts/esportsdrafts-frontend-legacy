@@ -11,17 +11,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import FPAnimation from "@/components/marketing/FPAnimation.vue";
-import FPTwitchLive from "@/components/marketing/FPTwitchLive.vue";
-import FPSupportedGames from "@/components/marketing/FPSupportedGames.vue";
+import Vue from 'vue';
+import FPAnimation from '@/components/marketing/FPAnimation.vue';
+import FPTwitchLive from '@/components/marketing/FPTwitchLive.vue';
+import FPSupportedGames from '@/components/marketing/FPSupportedGames.vue';
 
 export default Vue.extend({
   components: {
     FPAnimation,
     FPTwitchLive,
-    FPSupportedGames
-  }
+    FPSupportedGames,
+  },
 });
 </script>
 

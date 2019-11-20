@@ -38,19 +38,21 @@ export default {
     loading: false,
     menuItems: [
       {
-        title: "Login",
-        link: "/login",
-        icon: "warning"
-      }
-    ]
+        title: 'Login',
+        link: '/login',
+        icon: 'warning',
+      },
+    ],
   }),
 
   watch: {
     loading(val) {
       if (!val) return;
-      setTimeout(() => (this.loading = false), 4000);
-    }
-  }
+      setTimeout(() => {
+        this.loading = false;
+      }, 4000);
+    },
+  },
 };
 </script>
 

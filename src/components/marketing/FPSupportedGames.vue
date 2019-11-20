@@ -49,14 +49,14 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL,
     };
-  }
+  },
 });
 </script>
 
@@ -67,4 +67,3 @@ export default Vue.extend({
   filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
 }
 </style>
-

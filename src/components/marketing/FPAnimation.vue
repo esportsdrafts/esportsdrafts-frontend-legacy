@@ -11,9 +11,10 @@
             <v-flex md2 xl3 align="baseline"></v-flex>
             <v-flex md2 xl3 align="baseline"></v-flex>
             <v-flex md8 xl6 align="baseline">
-              <h2
-                class="text-center mb-3 font-weight-regular grey--text title"
-              >Lorem ipsum set dolor, dota2 is best game pepega random more text. More text buttons and links in this section.</h2>
+              <h2 class="text-center mb-3 font-weight-regular grey--text title">
+                Lorem ipsum set dolor, dota2 is best game pepega random more text.
+                More text buttons and links in this section.
+              </h2>
             </v-flex>
             <v-flex md2 xl3 align="baseline"></v-flex>
             <v-flex xs0 sm2 md4 xl5 align="baseline"></v-flex>
@@ -116,39 +117,39 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { TimelineLite, Back } from "gsap";
+import Vue from 'vue';
+import { TimelineLite, Back } from 'gsap';
 
 export default Vue.extend({
   data() {
     return {
       t1: new TimelineLite(),
       t2: new TimelineLite(),
-      t3: new TimelineLite()
+      t3: new TimelineLite(),
     };
   },
   mounted() {
     // TODO: Cleanup this copy-pasta
     this.t1 = new TimelineLite({
-      onComplete: () => this.t1.restart()
+      onComplete: () => this.t1.restart(),
     });
     this.t2 = new TimelineLite({
-      onComplete: () => this.t2.restart()
+      onComplete: () => this.t2.restart(),
     });
     this.t3 = new TimelineLite({
-      onComplete: () => this.t3.restart()
+      onComplete: () => this.t3.restart(),
     });
 
-    this.t1.to("#u1", 1, { x: 0, y: 80, ease: Back.easeOut });
-    this.t2.to("#u2", 1, { x: 0, y: -70, ease: Back.easeOut }, "0.1");
+    this.t1.to('#u1', 1, { x: 0, y: 80, ease: Back.easeOut });
+    this.t2.to('#u2', 1, { x: 0, y: -70, ease: Back.easeOut }, '0.1');
 
-    this.t3.to("#u3", 1, { x: 0, y: -150, ease: Back.easeOut }, "5.0");
-    this.t1.to("#u1", 1, { x: 0, y: 150, ease: Back.easeOut }, "5.1");
-    this.t2.to("#u2", 1, { x: 0, y: 0, ease: Back.easeOut }, "5");
+    this.t3.to('#u3', 1, { x: 0, y: -150, ease: Back.easeOut }, '5.0');
+    this.t1.to('#u1', 1, { x: 0, y: 150, ease: Back.easeOut }, '5.1');
+    this.t2.to('#u2', 1, { x: 0, y: 0, ease: Back.easeOut }, '5');
 
-    this.t1.to("#u1", 1, { x: 0, y: 0, ease: Back.easeOut }, "11");
-    this.t2.to("#u2", 1, { x: 0, y: 0, ease: Back.easeOut }, "11.1");
-    this.t3.to("#u3", 1, { x: 0, y: 0, ease: Back.easeOut }, "11");
-  }
+    this.t1.to('#u1', 1, { x: 0, y: 0, ease: Back.easeOut }, '11');
+    this.t2.to('#u2', 1, { x: 0, y: 0, ease: Back.easeOut }, '11.1');
+    this.t3.to('#u3', 1, { x: 0, y: 0, ease: Back.easeOut }, '11');
+  },
 });
 </script>
