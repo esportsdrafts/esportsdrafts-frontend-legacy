@@ -3,11 +3,11 @@
   <v-container>
     <v-layout wrap class="pt-0 pb-12 pl-0" justify-center>
       <v-flex md12 sm12 xs12 fill-height class="pt-6 pb-0 mb-10">
-        <h2 class="text-center display-4 font-weight-bold">Supported Games</h2>
+        <h2 class="text-center display-3 font-weight-bold">Supported Games</h2>
       </v-flex>
       <v-flex md12 sm12 xs12 fill-height align="baseline">
         <h2
-          class="text-center mb-6 font-weight-regular grey--text display-1"
+          class="text-center mb-6 font-weight-regular grey--text title"
         >Draft players from your favorite games</h2>
       </v-flex>
       <v-flex md4 fill-height class="pa-12 text-center">

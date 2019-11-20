@@ -10,7 +10,7 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Check your Inbox</p>
         <p
           class="headline font-weight-regular text-center mb-6"
-        >We just sent you and email with further instructions.</p>
+        >We just sent you an email with further instructions.</p>
         <v-layout align-center justify-center class="mb-8">
           <v-btn class="ma-2 login-custom-link" flat text to="/login">
             <v-icon left>arrow_back</v-icon>Back to login
