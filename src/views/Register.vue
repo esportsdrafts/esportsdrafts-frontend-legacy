@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
-      <v-card width="340" color="#151617" outlined="false">
+      <v-card width="340" color="#151617" elevation="0">
         <v-layout align-center justify-center class="mb-8">
           <v-btn tile color="white" icon to="/">
             <v-icon size="52">gamepad</v-icon>
@@ -9,13 +9,13 @@
         </v-layout>
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Register</p>
         <v-card-text>
-          <v-form @submit.prevent="register">
+          <v-form ref="form">
             <v-alert type="warning" v-if="password_warning !== null && password_warning != ''">
               <span class="font-weight-bold">Weak password:</span>
               {{password_warning}}
             </v-alert>
             <v-text-field
-              outlined="true"
+              outlined
               label="Username"
               name="username"
               type="text"
@@ -26,7 +26,7 @@
               @click:append="show_username_hint = !show_username_hint"
             ></v-text-field>
             <v-text-field
-              outlined="true"
+              outlined
               label="Email"
               name="email"
               type="text"
@@ -34,7 +34,7 @@
               :rules="[rules.required, rules.email_validation]"
             ></v-text-field>
             <v-text-field
-              outlined="true"
+              outlined
               :append-icon="show_password ? 'visibility' : 'visibility_off'"
               :type="show_password ? 'text' : 'password'"
               id="password"
@@ -68,7 +68,7 @@
           <v-btn color="primary" @click="register" :loading="loading" block>Register</v-btn>
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn class="ma-2 login-custom-link" flat text to="/login">
+          <v-btn class="ma-2 login-custom-link" text to="/login">
             <v-icon left>arrow_back</v-icon>Back to login
           </v-btn>
         </v-layout>
@@ -133,6 +133,9 @@ export default {
       }
     },
     register() {
+      if (!this.$refs.form.validate()) {
+        return;
+      }
       this.loading = true;
       this.error = false;
       var credentials = {
@@ -144,7 +147,9 @@ export default {
         .dispatch("user/createAccount", credentials)
         .then(res => {
           console.log(res);
-          this.$router.replace("/emailsent");
+          if (!this.error) {
+            this.$router.replace("/emailsent");
+          }
         })
         .catch(error => {
           console.log(error);

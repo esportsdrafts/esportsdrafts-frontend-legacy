@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
-      <v-card class="flat" width="340" color="#151617" outlined="false">
+      <v-card class="flat" width="340" color="#151617" elevation="0">
         <v-layout align-center justify-center class="mb-8">
           <v-btn tile color="white" icon to="/">
             <v-icon size="52">gamepad</v-icon>
@@ -10,9 +10,9 @@
         <p class="headline font-weight-bold text-uppercase text-center mb-6">Login</p>
         <v-card-text>
           <v-form>
-            <v-text-field outlined="true" label="Username" name="username" type="text"></v-text-field>
+            <v-text-field outlined label="Username" name="username" type="text"></v-text-field>
             <v-text-field
-              outlined="true"
+              outlined
               id="password"
               label="Password"
               name="password"
@@ -28,16 +28,10 @@
           <v-btn color="primary" block>Login</v-btn>
         </v-card-actions>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn
-            flat
-            text
-            color="gray"
-            class="login-custom-link"
-            to="/resetpassword"
-          >Forgot password?</v-btn>
+          <v-btn text color="gray" class="login-custom-link" to="/resetpassword">Forgot password?</v-btn>
         </v-layout>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn class="ma-2 login-custom-link" flat text to="/register">
+          <v-btn class="ma-2 login-custom-link" text to="/register">
             Register your account
             <v-icon right>arrow_forward</v-icon>
           </v-btn>

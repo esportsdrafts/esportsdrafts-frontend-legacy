@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
-      <v-card class="flat" width="340" color="#151617" outlined="false">
+      <v-card width="340" color="#151617" elevation="0">
         <v-layout align-center justify-center class="mb-10">
           <v-btn color="white" icon x-small>
             <v-icon size="52">email</v-icon>
@@ -12,7 +12,7 @@
           class="headline font-weight-regular text-center mb-6"
         >We just sent you an email with further instructions.</p>
         <v-layout align-center justify-center class="mb-8">
-          <v-btn class="ma-2 login-custom-link" flat text to="/login">
+          <v-btn class="ma-2 login-custom-link" text to="/login">
             <v-icon left>arrow_back</v-icon>Back to login
           </v-btn>
         </v-layout>
