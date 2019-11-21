@@ -19,7 +19,7 @@
           rounded
         >{{ item.title }}</v-btn>
       </v-toolbar-items>
-      <v-btn class="ml-4 mr-8" outlined color="primary" large href="/register">Sign Up</v-btn>
+      <v-btn class="ml-4 mr-8" outlined color="primary" large to="/register">Sign Up</v-btn>
     </v-toolbar>
     <v-progress-linear
       :active="loading"
@@ -38,11 +38,11 @@ export default {
     loading: false,
     menuItems: [
       {
-        title: 'Login',
-        link: '/login',
-        icon: 'warning',
-      },
-    ],
+        title: "Login",
+        link: "/login",
+        icon: "warning"
+      }
+    ]
   }),
 
   watch: {
@@ -51,8 +51,8 @@ export default {
       setTimeout(() => {
         this.loading = false;
       }, 4000);
-    },
-  },
+    }
+  }
 };
 </script>
 

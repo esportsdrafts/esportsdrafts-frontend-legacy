@@ -3,25 +3,29 @@
     <v-layout wrap>
       <f-p-animation />
       <div class="plus-divider text-center shine">+</div>
+      <f-p-how-to />
+      <div class="plus-divider text-center shine">+</div>
       <f-p-twitch-live />
       <div class="plus-divider text-center shine">+</div>
-      <f-p-supported-games />
+      <f-p-developer />
     </v-layout>
   </v-container>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import FPAnimation from '@/components/marketing/FPAnimation.vue';
-import FPTwitchLive from '@/components/marketing/FPTwitchLive.vue';
-import FPSupportedGames from '@/components/marketing/FPSupportedGames.vue';
+import Vue from "vue";
+import FPAnimation from "@/components/marketing/FPAnimation.vue";
+import FPHowTo from "@/components/marketing/FPHowTo.vue";
+import FPTwitchLive from "@/components/marketing/FPTwitchLive.vue";
+import FPDeveloper from "@/components/marketing/FPDeveloper.vue";
 
 export default Vue.extend({
   components: {
     FPAnimation,
+    FPHowTo,
     FPTwitchLive,
-    FPSupportedGames,
-  },
+    FPDeveloper
+  }
 });
 </script>
 
