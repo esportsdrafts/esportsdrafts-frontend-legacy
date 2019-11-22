@@ -19,7 +19,7 @@
           rounded
         >{{ item.title }}</v-btn>
       </v-toolbar-items>
-      <v-btn class="ml-4 mr-8" outlined color="primary" large to="/register">Sign Up</v-btn>
+      <v-btn class="ml-8 mr-8" outlined color="primary" large to="/register">Sign Up</v-btn>
     </v-toolbar>
     <v-progress-linear
       :active="loading"

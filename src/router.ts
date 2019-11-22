@@ -123,7 +123,7 @@ router.beforeEach((to, from, next) => {
   // @ts-ignore
   // eslint-disable-next-line
   Array.from(document.querySelectorAll('[data-vue-router-controlled]')).filter(Boolean).map(
-    el => el.parentNode.removeChild(el),
+    el => { if (el.parentNode) { return el.parentNode.removeChild(el) } else { return false } },
   );
   if (!nearestWithMeta) return next();
 
