@@ -1,7 +1,7 @@
 
 <template>
   <v-container class="pl-0 pr-0 ml-0" fluid>
-    <v-layout wrap class="pt-0 pb-12 pl-0 mb-12">
+    <v-layout wrap class="pt-0 pb-8 pl-0 mb-10">
       <v-flex md2 xl3 align="baseline"></v-flex>
       <v-flex md8 xl6 align="baseline" class="mb-3">
         <h1 class="text-center font-weight-bold display-3">Real-Time Excitement</h1>
@@ -15,16 +15,14 @@
       </v-flex>
       <v-flex md2 xl3 align="baseline"></v-flex>
 
-      <v-flex sm12 md6>
+      <v-flex sm12 md6 class="pt-10">
         <v-img
-          src="https://scontent-sjc3-1.cdninstagram.com/vp/ef090ea79905e03d8be2490ec69360f2/5D599EFB/t51.2885-15/e35/41457113_248368242548985_4723613110038644426_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com"
-          lazy-src="https://scontent-sjc3-1.cdninstagram.com/vp/ef090ea79905e03d8be2490ec69360f2/5D599EFB/t51.2885-15/e35/41457113_248368242548985_4723613110038644426_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com"
+          src="http://i.imgur.com/n7ot8bP.jpg"
+          lazy-src="http://i.imgur.com/n7ot8bP.jpg"
           aspect-ratio="1"
         ></v-img>
       </v-flex>
-      <v-flex sm12 md6>
-        <v-layout wrap class="pa-10"></v-layout>
-      </v-flex>
+      <v-flex sm12 md6></v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -33,7 +31,7 @@
 </style>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({});
 </script>
