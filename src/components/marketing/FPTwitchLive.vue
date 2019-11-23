@@ -17,8 +17,8 @@
 
       <v-flex sm12 md6 class="pt-10">
         <v-img
-          src="http://i.imgur.com/n7ot8bP.jpg"
-          lazy-src="http://i.imgur.com/n7ot8bP.jpg"
+          src="https://i.imgur.com/n7ot8bP.jpg"
+          lazy-src="https://i.imgur.com/n7ot8bP.jpg"
           aspect-ratio="1"
         ></v-img>
       </v-flex>

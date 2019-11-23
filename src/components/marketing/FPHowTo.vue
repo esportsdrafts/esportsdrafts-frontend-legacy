@@ -2,7 +2,7 @@
 <template>
   <v-container>
     <v-layout class="pt-0 pb-12 pl-0 mb-12" column="12">
-      <v-flex md12 sm12 xs12 fill-height class="pt-6 pb-0 mb-3">
+      <v-flex md12 sm12 xs12 fill-height class="pt-0 pb-0 mb-3">
         <h2 class="text-center display-3 font-weight-bold">How it works</h2>
       </v-flex>
       <v-flex md12 sm12 xs12 fill-height align="baseline">
@@ -195,9 +195,9 @@ export default Vue.extend({
   height: 1px;
   background-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 1),
+    rgba(21, 22, 23, 1),
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1)
+    rgba(21, 22, 23, 1)
   );
 }
 

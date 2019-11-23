@@ -20,7 +20,6 @@
               :type="show_password ? 'text' : 'password'"
               @click:append="show_password = !show_password"
             ></v-text-field>
-            <v-checkbox color="primary" label="Remember me" class="mt-n3"></v-checkbox>
           </v-form>
         </v-card-text>
         <v-card-actions class="pl-4 pr-4">
@@ -43,16 +42,16 @@
 
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   data() {
     return {
-      username: 'dotamaster11',
-      pass: '',
+      username: "dotamaster11",
+      pass: "",
       error: false,
       loading: false,
-      show_password: false,
+      show_password: false
     };
   },
   methods: {
@@ -60,19 +59,19 @@ export default {
       this.loading = true;
       this.error = false;
       this.$store
-        .dispatch('user/login')
+        .dispatch("user/login")
         .then(() => {
-          this.$router.replace(this.$route.query.redirect || '/');
+          this.$router.replace(this.$route.query.redirect || "/");
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
           this.error = true;
         })
         .finally(() => {
           this.loading = false;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

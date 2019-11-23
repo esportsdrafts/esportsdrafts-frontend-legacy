@@ -1,8 +1,8 @@
 
 <template>
   <v-container>
-    <v-layout wrap class="pt-0 pb-12 pl-0" justify-center>
-      <v-flex md12 sm12 xs12 fill-height class="pt-6 pb-0 mb-3">
+    <v-layout wrap class="pt-0 pb-12 mb-6 pl-0" justify-center>
+      <v-flex md12 sm12 xs12 fill-height class="pt-0 pb-0 mb-3">
         <h2 class="text-center display-3 font-weight-bold">Developer?</h2>
       </v-flex>
       <v-flex md12 sm12 xs12 fill-height align="baseline">
