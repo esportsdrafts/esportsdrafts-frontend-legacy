@@ -14,6 +14,7 @@
               <span class="font-weight-bold">Weak password:</span>
               {{password_warning}}
             </v-alert>
+            <v-alert type="error" v-if="error_msg !== null && error_msg != ''">{{error_msg}}</v-alert>
             <v-text-field
               outlined
               label="Username"
@@ -24,6 +25,7 @@
               v-model="username"
               :rules="[rules.required, rules.username_min, rules.username_val]"
               @click:append="show_username_hint = !show_username_hint"
+              @input="username_dup_test"
             ></v-text-field>
             <v-text-field
               outlined
@@ -78,54 +80,63 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import Password from 'vue-password-strength-meter';
+import { mapState } from "vuex";
+import Password from "vue-password-strength-meter";
+import { CREATE_ACCOUNT } from "@/store/modules/user";
 
 export default {
   components: { Password },
   data() {
     return {
-      username: '',
-      email: '',
+      username: "",
+      email: "",
       password: null,
       error: false,
+      error_msg: "",
       loading: false,
       password_score: 0,
       password_warning: null,
       password_suggestion: null,
-      password_strength_color: 'primary',
+      password_strength_color: "primary",
       show_password_warning: true,
       show_username_hint: false,
       show_password_hint: false,
       show_password: false,
       rules: {
-        required: value => !!value || 'Required.',
-        username_min: v => (v && v.length >= 5) || 'Min 5 characters.',
-        username_val: v => (v && v.match(/^[\da-z_-]*$/g)) || 'Only a-z, 0-9, - or _ allowed.',
-        email_validation: v => (v && v.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
-          || 'Not a valid email address.',
-        password_min: v => (v && v.length >= 12) || 'Min 12 characters.',
-      },
+        required: value => !!value || "Required.",
+        username_min: v => (v && v.length >= 5) || "Min 5 characters.",
+        username_val: v =>
+          (v && v.match(/^[\da-z_-]*$/g)) || "Only a-z, 0-9, - or _ allowed.",
+        email_validation: v =>
+          (v && v.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) ||
+          "Not a valid email address.",
+        password_min: v => (v && v.length >= 12) || "Min 12 characters."
+      }
     };
   },
   methods: {
     passwordScore(score) {
       if (!score) {
-        this.password_strength_color = 'red darken-4';
+        this.password_strength_color = "red darken-4";
         this.password_score = 0;
       }
       this.password_score = (1 + score) * 20;
       this.password_strength_color = [
-        'red darken-4',
-        'red darken-2',
-        'yellow darken-3',
-        'yellow darken-1',
-        'light-green darken-1',
+        "red darken-4",
+        "red darken-2",
+        "yellow darken-3",
+        "yellow darken-1",
+        "light-green darken-1"
       ][score];
     },
     passwordFeedback({ suggestion, warning }) {
       this.password_warning = warning;
       this.password_suggestion = suggestion;
+    },
+    username_dup_test() {
+      this.error_msg = "";
+      if (this.username && this.username.length >= 5) {
+      }
     },
     register() {
       if (!this.$refs.form.validate()) {
@@ -133,28 +144,26 @@ export default {
       }
       this.loading = true;
       this.error = false;
+      this.error_msg = "";
       const credentials = {
         username: this.username,
         email: this.email,
-        password: this.pass,
+        password: this.password
       };
       this.$store
-        .dispatch('user/createAccount', credentials)
-        .then((res) => {
-          console.log(res);
-          if (!this.error) {
-            this.$router.replace('/emailsent');
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+        .dispatch(CREATE_ACCOUNT, credentials)
+        .catch(error => {
           this.error = true;
+          this.error_msg = error.response.data.message;
         })
         .finally(() => {
+          if (!this.error) {
+            this.$router.replace("/emailsent");
+          }
           this.loading = false;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

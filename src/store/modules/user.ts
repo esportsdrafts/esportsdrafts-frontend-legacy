@@ -9,6 +9,9 @@ import {
 
 type authStatus = 'unauthorized' | 'authorized' | '2fa';
 
+export const CREATE_ACCOUNT = "user/createAccount"
+export const PERFORM_AUTH = "user/performAuth"
+
 export interface UserState {
   username: string,
   roles: Array<string>,
@@ -31,17 +34,21 @@ const getters: GetterTree<UserState, RootState> = {
 
 const actions: ActionTree<UserState, RootState> = {
   createAccount({ commit, state }, credentials) {
-    return authAPI.createAccount(credentials.username, credentials.email, credentials.password)
-      .then(() => {
-        // DO A REDIRECT TO LOGIN PAGE
-      })
-      .catch(Error => console.log(Error))
-      .finally(() => {
-
-      });
+    return new Promise((resolve, reject) => {
+      authAPI.createAccount(credentials.username, credentials.email, credentials.password)
+        .then(() => {
+          resolve();
+        }, (error) => reject(error));
+    });
   },
 
   login({ commit, state }, credentials) {
+    new Promise((resolve, reject) => {
+      authAPI.createAccount(credentials.username, credentials.email, credentials.password)
+        .then(() => {
+          resolve();
+        }, (error) => reject(error));
+    });
   },
 };
 

@@ -14,7 +14,7 @@ Vue.use(VueAxios, axios);
 axios.defaults.baseURL = 'https://api.esportsdrafts.localhost';
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 Vue.config.productionTip = false;
 

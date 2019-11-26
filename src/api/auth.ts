@@ -7,13 +7,13 @@ export default {
       username,
       email,
       password,
-    });
+    })
   },
 
   performAuth(username: string, password: string) {
     return axios.post('/v1/auth/auth', {
       username,
       password,
-    });
+    })
   },
 };
