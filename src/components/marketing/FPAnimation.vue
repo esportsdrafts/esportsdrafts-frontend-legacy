@@ -12,7 +12,7 @@
             <v-flex md2 xl3 align="baseline"></v-flex>
             <v-flex md8 xl6 align="baseline">
               <h2 class="text-center mb-3 font-weight-regular grey--text title">
-                Lorem ipsum set dolor, dota2 is best game pepega random more text.
+                Lorem dipsum set dolor, dota2 is best game pepega random more text.
                 More text buttons and links in this section.
               </h2>
             </v-flex>

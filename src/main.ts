@@ -18,7 +18,6 @@ axios.defaults.withCredentials = true;
 
 Vue.config.productionTip = false;
 
-// HELLO
 new Vue({
   router,
   store,

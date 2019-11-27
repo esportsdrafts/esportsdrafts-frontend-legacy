@@ -9,9 +9,12 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 443
 
 ARG VERSION
+
+ENV VERSION ${VERSION}
+ENV CHOKIDAR_USEPOLLING true
 
 LABEL Name="esportsdrafts-frontend-dev" \
     Version="${VERSION}"
