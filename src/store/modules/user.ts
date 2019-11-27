@@ -6,11 +6,12 @@ import authAPI from '../../api/auth';
 import {
   RootState,
 } from '../store';
+import "jwt-decode";
 
 type authStatus = 'unauthorized' | 'authorized' | '2fa';
 
 export const CREATE_ACCOUNT = "user/createAccount"
-export const PERFORM_AUTH = "user/performAuth"
+export const PERFORM_AUTH = "user/login"
 
 export interface UserState {
   username: string,
@@ -32,6 +33,17 @@ const getters: GetterTree<UserState, RootState> = {
   isAdminUser: (state, _getters) => state.roles.includes('admin'),
 };
 
+function getCookie(name: string): string | null {
+  const name_len_plus = (name.length + 1);
+  return document.cookie.split(';')
+    .map(c => c.trim()).filter(cookie => {
+      return cookie.substring(0, name_len_plus) === `${name}=`;
+    })
+    .map(cookie => {
+      return decodeURIComponent(cookie.substring(name_len_plus));
+    })[0] || null;
+}
+
 const actions: ActionTree<UserState, RootState> = {
   createAccount({ commit, state }, credentials) {
     return new Promise((resolve, reject) => {
@@ -43,9 +55,11 @@ const actions: ActionTree<UserState, RootState> = {
   },
 
   login({ commit, state }, credentials) {
-    new Promise((resolve, reject) => {
-      authAPI.createAccount(credentials.username, credentials.email, credentials.password)
+    return new Promise((resolve, reject) => {
+      authAPI.performAuth(credentials.username, credentials.password)
         .then(() => {
+          console.log(getCookie('header.payload'))
+          console.log(document.cookie)
           resolve();
         }, (error) => reject(error));
     });

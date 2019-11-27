@@ -139,6 +139,7 @@ export default {
       }
     },
     register() {
+      // Run all form validation to make sure
       if (!this.$refs.form.validate()) {
         return;
       }

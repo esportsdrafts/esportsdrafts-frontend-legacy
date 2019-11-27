@@ -1,8 +1,6 @@
 
 FROM node:lts-alpine
 
-RUN npm install -g http-server
-
 WORKDIR /app
 
 COPY package*.json ./
@@ -11,8 +9,12 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
 EXPOSE 8080
 
-CMD [ "http-server", "dist" ]
+ARG VERSION
+
+LABEL Name="esportsdrafts-frontend-dev" \
+    Version="${VERSION}"
+
+# NOTE: THIS IS FOR DEV ONLY, PRODUCTION NEEDS DIFFERENT IMAGE
+CMD [ "npm", "run", "serve"]
