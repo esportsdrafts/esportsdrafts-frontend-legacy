@@ -82,6 +82,7 @@ export default {
         })
         .finally(() => {
           if (!this.error) {
+            console.log("Cookies: " + document.cookie);
             this.$router.replace(this.$route.query.redirect || "/");
           }
           this.loading = false;

@@ -58,9 +58,9 @@ const actions: ActionTree<UserState, RootState> = {
     return new Promise((resolve, reject) => {
       authAPI.performAuth(credentials.username, credentials.password)
         .then(() => {
-          console.log(getCookie('header.payload'))
-          console.log(document.cookie)
           resolve();
+          console.log(getCookie('header.payload'));
+          console.log(document.cookie);
         }, (error) => reject(error));
     });
   },

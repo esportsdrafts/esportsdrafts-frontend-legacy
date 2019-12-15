@@ -20,6 +20,7 @@
           src="https://i.imgur.com/n7ot8bP.jpg"
           lazy-src="https://i.imgur.com/n7ot8bP.jpg"
           aspect-ratio="1"
+          class="thick-border"
         ></v-img>
       </v-flex>
       <v-flex sm12 md6></v-flex>
@@ -28,6 +29,10 @@
 </template>
 
 <style>
+.thick-border {
+  border: 8px solid black;
+  border-radius: 4px;
+}
 </style>
 
 <script lang="ts">

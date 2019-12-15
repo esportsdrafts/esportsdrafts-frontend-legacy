@@ -18,4 +18,8 @@ export default {
       claim,
     });
   },
+
+  check(username: string) {
+    return axios.get(`/v1/auth/check?username=${username}`);
+  },
 };
